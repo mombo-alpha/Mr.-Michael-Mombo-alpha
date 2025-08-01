@@ -1,0 +1,231 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base Styling */
+body {
+  font-family: 'Courier New', monospace;
+  background-color: #000; /* black background */
+  color: #FFFFFF; /* white text */
+  line-height: 1.6;
+  padding-bottom: 3rem;
+}
+
+header {
+  background-color: #1a1a1a;
+  color: #32CD32; /* Linux green */
+  padding: 2rem 1rem;
+  text-align: center;
+  border-bottom: 3px solid #7F00FF; /* violet border */
+}
+
+.logo {
+  width: 80px;
+  margin-bottom: 1rem;
+}
+
+.motto {
+  color: #B22222; /* dark red */
+  font-style: italic;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+/* Navigation Bar */
+nav {
+  background-color: #111;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  border-bottom: 2px solid #00FF00;
+}
+
+nav a {
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  background-color: #7F50FF;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #B22222;
+}
+
+/* Intro & About Sections */
+main {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.intro, .about, .calendar-info, .event-sample, .contact-details,
+.social-links, .careers, .partners, .journals {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: #1e1e1e;
+  border-left: 5px solid #00FF00;
+  border-radius: 6px;
+}
+
+.gallery img {
+  width: 100%;
+  max-width: 250px;
+  margin: 0.5rem;
+  border: 2px solid #32CD32;
+  border-radius: 4px;
+}
+
+/* Articles */
+.article-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.post {
+  background-color: #222;
+  padding: 1.5rem;
+  border-left: 4px solid #7F00FF;
+  border-radius: 5px;
+}
+
+.post h2 {
+  color: #32CD32;
+  margin-bottom: 0.5rem;
+}
+
+.post a {
+  color: #00FF00;
+  text-decoration: underline;
+}
+
+.post a:hover {
+  color: #B22222;
+}
+
+/* Highlights / Cards */
+.highlights {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.card {
+  background-color: #1e1e1e;
+  padding: 1.5rem;
+  border: 2px solid #7F00FF;
+  border-radius: 8px;
+  flex: 1 1 250px;
+  text-align: center;
+}
+
+.card h3 {
+  color: #32CD32;
+}
+
+.card a {
+  color: #00FF00;
+  display: inline-block;
+  margin-top: 1rem;
+  text-decoration: none;
+}
+
+.card a:hover {
+  color: #B22222;
+}
+
+/* Shop (Dropshipping) */
+.shop-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.product-card {
+  background-color: #111;
+  padding: 1rem;
+  border: 2px solid #32CD32;
+  border-radius: 8px;
+  max-width: 300px;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.product-card img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.product-card h3 {
+  color: #00FF00;
+  margin-bottom: 0.5rem;
+}
+
+.product-card .price {
+  color: #B22222;
+  font-weight: bold;
+}
+
+/* Lists */
+ul {
+  list-style: square inside;
+  margin-left: 1rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+/* Footer */
+footer {
+  background-color: #1a1a1a;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 2rem 1rem;
+  border-top: 3px solid #8B0000;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+footer a {
+  color: #00FF00;
+  margin: 0 0.5rem;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #B22222;
+}
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+  .highlights,
+  .shop-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav {
+    flex-direction: column;
+  }
+
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

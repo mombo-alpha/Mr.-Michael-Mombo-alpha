@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Alpha Admin Dashboard</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script>
+    window.onload = () => {
+      const isLoggedIn = localStorage.getItem("alphaAdminLoggedIn");
+      if (isLoggedIn !== "true") {
+        alert("Access denied. Please log in first.");
+        window.location.href = "admin-login.html";
+      }
+
+      displayArticles();
+    };
+
+    function saveArticle(event) {
+      event.preventDefault();
+
+      const title = document.getElementById("article-title").value;
+      const content = document.getElementById("article-content").value;
+      const date = new Date().toLocaleDateString();
+
+      const article = { title, content, date };
+
+      let articles = JSON.parse(localStorage.getItem("alphaArticles")) || [];
+      articles.unshift(article);
+      localStorage.setItem("alphaArticles", JSON.stringify(articles));
+
+      document.getElementById("article-form").reset();
+      displayArticles();
+    }
+
+    function displayArticles() {
+      const container = document.getElementById("articles-display");
+      const articles = JSON.parse(localStorage.getItem("alphaArticles")) || [];
+      container.innerHTML = "";
+
+      if (articles.length === 0) {
+        container.innerHTML = "<p>No articles posted yet.</p>";
+        return;
+      }
+
+      articles.forEach((article, index) => {
+        const div = document.createElement("div");
+        div.className = "post";
+        div.innerHTML = `
+          <h2>${article.title}</h2>
+          <p><strong>Date:</strong> ${article.date}</p>
+          <p>${article.content}</p>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    function logout() {
+      localStorage.removeItem("alphaAdminLoggedIn");
+      window.location.href = "admin-login.html";
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>🛠️ Alpha Admin Dashboard</h1>
+    <p class="motto">Welcome Mr. Mombo Michael — Manage Articles Below</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="articles.html">Articles</a>
+    <a href="calendar.html">Events</a>
+    <a href="dropshipping.html">Shop</a>
+    <a href="#" onclick="logout()">Logout</a>
+  </nav>
+
+  <main style="max-width: 800px; margin: auto; padding: 2rem;">
+    <section>
+      <h2>Write a New Article</h2>
+      <form id="article-form" onsubmit="saveArticle(event)">
+        <label for="article-title">Title:</label><br>
+        <input type="text" id="article-title" required><br><br>
+
+        <label for="article-content">Content:</label><br>
+        <textarea id="article-content" rows="6" required></textarea><br><br>
+
+        <button type="submit">Save Article</button>
+      </form>
+    </section>
+
+    <section id="articles-display" style="margin-top: 3rem;">
+      <!-- Articles will be displayed here -->
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Alpha Solutions</p>
+  </footer>
+</body>
+</html>
